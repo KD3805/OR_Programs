@@ -21,16 +21,16 @@ public class P_2 {
         int totalCombinations = (int) Math.pow(servers, noOfTask);
 
         for (int i = 0; i < totalCombinations; i++) {
-            int[] taskToServer = toBaseKArray(i,  noOfTask); // 0, 0, 0
+            int[] taskToServer = toBaseKArray(i,  noOfTask); 
             int[] serverLoads = new int[servers];
 
             for (int j = 0; j < noOfTask; j++) {
-                int server = taskToServer[j]; // 0
-                serverLoads[server] += timeOfTasks[j]; // server[0] += 30
+                int server = taskToServer[j]; 
+                serverLoads[server] += timeOfTasks[j];
             }
 
-            int maxLoad = Arrays.stream(serverLoads).max().getAsInt(); //60
-            minMaxLoad = Math.min(minMaxLoad, maxLoad);//0
+            int maxLoad = Arrays.stream(serverLoads).max().getAsInt(); 
+            minMaxLoad = Math.min(minMaxLoad, maxLoad);
         }
 
         System.out.println("Minimum max load: " + minMaxLoad);
@@ -46,4 +46,4 @@ public class P_2 {
     }
 }
 
-// 000
+// github: https://github.com/KD3805/OR_Programs
