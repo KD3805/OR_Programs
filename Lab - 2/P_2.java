@@ -18,15 +18,15 @@ public class P_2 {
         }
 
         int minMaxLoad = Integer.MAX_VALUE;
-        int totalCombinations = (int) Math.pow(servers, noOfTask);
+        int totalCombinations = (int) Math.pow(servers, noOfTask); //8
 
         for (int i = 0; i < totalCombinations; i++) {
-            int[] taskToServer = toBaseKArray(i,  noOfTask); 
-            int[] serverLoads = new int[servers];
+            int[] taskToServer = toBaseKArray(i,  noOfTask, servers); // 0-> [0,0,0]
+            int[] serverLoads = new int[servers]; //[0,0]
 
-            for (int j = 0; j < noOfTask; j++) {
+            for (int j = 0; j < noOfTask; j++) {   // timesOfTask = [ 10 , 20 ,30];
                 int server = taskToServer[j]; 
-                serverLoads[server] += timeOfTasks[j];
+                serverLoads[server] += timeOfTasks[j]; // serverLoads[0] += 10,20,30;
             }
 
             int maxLoad = Arrays.stream(serverLoads).max().getAsInt(); 
@@ -36,11 +36,11 @@ public class P_2 {
         System.out.println("Minimum max load: " + minMaxLoad);
     }
 
-    public static int[] toBaseKArray(int number, int length) {
+    public static int[] toBaseKArray(int number, int length, int base) {
         int[] arr = new int[length];
         for (int i = length - 1; i >= 0; i--) {
-            arr[i] = number % 2;
-            number /= 2;
+            arr[i] = number % base;
+            number /= base;
         }
         return arr;
     }
