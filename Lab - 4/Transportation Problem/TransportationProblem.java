@@ -44,14 +44,10 @@ public class TransportationProblem {
             // Move to next cell
             if (s[i] == 0 && i < s.length - 1) {
                 i++; // row exhausted, move down
-            } else if (d[j] == 0 && j < d.length - 1) {
+            } 
+            if (d[j] == 0 && j < d.length - 1) {
                 j++; // column exhausted, move right
-            } else {
-                // both zero or at edge
-                if (i < s.length - 1) i++;
-                else if (j < d.length - 1) j++;
-                else break;
-            }
+            } 
         }
         return allocation;
     }

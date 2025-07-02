@@ -19,7 +19,7 @@ public class HungarianAssignmentProblem {
         for (int i = 0; i < N; i++)
             matrix[i] = Arrays.copyOf(costMatrix[i], N);
 
-        System.out.println("\uD83D\uDD22 Original Cost Matrix:");
+        System.out.println("Original Cost Matrix:");
         printMatrix(matrix);
 
         // Step 1: Row Reduction
@@ -76,7 +76,7 @@ public class HungarianAssignmentProblem {
 
         // Step 6: Final assignment and cost
         int totalCost = 0;
-        System.out.println("\n\u2705 Final Assignment:");
+        System.out.println("Final Assignment:");
         for (int i = 0; i < N; i++)
             for (int j = 0; j < N; j++)
                 if (mark[i][j] == 1) {
@@ -84,7 +84,7 @@ public class HungarianAssignmentProblem {
                     totalCost += costMatrix[i][j];
                 }
 
-        System.out.println("\n\uD83C\uDFAF Minimum Total Cost (Z min) = " + totalCost + " hours");
+        System.out.println("Minimum Total Cost (Z min) = " + totalCost + " hours");
     }
 
     // Step 1: Subtract row-wise min
@@ -94,7 +94,7 @@ public class HungarianAssignmentProblem {
             for (int j = 0; j < N; j++)
                 matrix[i][j] -= min;
         }
-        System.out.println("\n\uD83D\uDD27 After Row Reduction:");
+        System.out.println("After Row Reduction:");
         printMatrix(matrix);
     }
 
@@ -107,7 +107,7 @@ public class HungarianAssignmentProblem {
             for (int i = 0; i < N; i++)
                 matrix[i][j] -= min;
         }
-        System.out.println("\n\uD83D\uDD27 After Column Reduction:");
+        System.out.println("After Column Reduction:");
         printMatrix(matrix);
     }
 
@@ -196,7 +196,7 @@ public class HungarianAssignmentProblem {
                 else if (!rowCover[i] && !colCover[j]) matrix[i][j] -= min;
             }
 
-        System.out.println("\n\uD83D\uDD01 Matrix after Adjustment Step:");
+        System.out.println("Matrix after Adjustment Step:");
         printMatrix(matrix);
     }
 
